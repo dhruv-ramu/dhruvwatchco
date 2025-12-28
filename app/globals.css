@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper: #f6f1e7;
+    --ink: #14120f;
+    --accent: #8b4513;
+  }
+
+  body {
+    @apply bg-paper text-ink;
+    position: relative;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  /* Grain overlay */
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.06;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+  }
+}
+
+@layer components {
+  /* Link hover underline animation */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .link-underline:hover::after,
+  .link-underline:focus::after {
+    width: 100%;
+  }
+
+  /* Small caps utility */
+  .small-caps {
+    @apply uppercase tracking-wider text-xs font-medium;
+    letter-spacing: 0.1em;
+  }
+
+  /* Hairline rule */
+  .hairline {
+    @apply border-t border-ink/15;
+  }
+
+  /* Card hover lift */
+  .card-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(20, 18, 15, 0.08);
+  }
+
+  /* Image hover scale */
+  .image-hover {
+    transition: transform 0.4s ease;
+  }
+
+  .image-hover:hover {
+    transform: scale(1.01);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent;
+}
+
