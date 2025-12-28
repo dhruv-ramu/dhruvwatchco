@@ -1,4 +1,10 @@
+import { Metadata } from 'next'
 import Button from '@/components/Button'
+
+export const metadata: Metadata = {
+  title: 'About | Dhruv Watch Co',
+  description: 'Learn about Dhruv Watch Co. We build custom handmade watches in small batches, with meticulous attention to detail and thoughtful finishing.',
+}
 
 export default function AboutPage() {
   return (
@@ -67,4 +73,3 @@ export default function AboutPage() {
     </div>
   )
 }
-

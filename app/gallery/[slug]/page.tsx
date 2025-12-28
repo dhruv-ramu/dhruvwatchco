@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,6 +12,26 @@ export async function generateStaticParams() {
   return builds.map((build) => ({
     slug: build.slug,
   }))
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const build = getBuildImageBySlug(params.slug)
+  
+  if (!build) {
+    return {
+      title: 'Build Not Found | Dhruv Watch Co',
+    }
+  }
+
+  return {
+    title: `${build.title} | Dhruv Watch Co`,
+    description: `Custom handmade watch: ${build.title}. ${build.tags.join(', ')}.`,
+    openGraph: {
+      title: `${build.title} | Dhruv Watch Co`,
+      description: `Custom handmade watch: ${build.title}`,
+      images: [build.src],
+    },
+  }
 }
 
 export default function BuildDetailPage({ params }: { params: { slug: string } }) {
@@ -67,4 +88,3 @@ export default function BuildDetailPage({ params }: { params: { slug: string } }
     </div>
   )
 }
-

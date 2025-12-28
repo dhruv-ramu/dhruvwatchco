@@ -1,4 +1,10 @@
+import { Metadata } from 'next'
 import Button from '@/components/Button'
+
+export const metadata: Metadata = {
+  title: 'Process | Dhruv Watch Co',
+  description: 'Learn how we build custom handmade watches. From design to dial work, assembly, and quality control—every step is done with care.',
+}
 
 export default function ProcessPage() {
   return (
@@ -134,4 +140,3 @@ export default function ProcessPage() {
     </div>
   )
 }
-
