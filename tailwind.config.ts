@@ -9,9 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: '#f6f1e7',
-        ink: '#14120f',
-        accent: '#8b4513', // Deep oxblood/brown
+        paper: '#EEE9E1', // Warm, aged paper tone
+        ink: '#1B1A17', // Warm black, not pure black
+        accent: '#FF8FA3', // Muted pink/coral
+        'accent-hover': '#FF7A8A',
+        system: '#4ADE80', // System green (dirtied)
       },
       fontFamily: {
         serif: ['var(--font-serif)', 'serif'],

@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const serif = Cormorant_Garamond({
-  weight: ['400', '500', '600', '700'],
+const serif = Playfair_Display({
+  weight: ['400', '500', '600', '700', '900'],
   subsets: ['latin'],
   variable: '--font-serif',
   display: 'swap',
